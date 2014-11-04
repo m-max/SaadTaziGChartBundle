@@ -41,6 +41,7 @@ class GChartExtension extends \Twig_Extension {
             'gchart_table'          => new \Twig_Function_Method($this, 'gchartTable', array('is_safe' => array('html'))),
             'gchart_get_pie_chart_url' => new \Twig_Function_Method($this, 'getPieChartUrl', array('is_safe' => array('html'))),
             'gchart_get_pie_chart3d_url' => new \Twig_Function_Method($this, 'getPieChart3DUrl', array('is_safe' => array('html'))),
+            'gchart_get_bar_chart_url' => new \Twig_Function_Method($this, 'getBarChartUrl', array('is_safe' => array('html'))),
             'gchart_get_icon_url'   => new \Twig_Function_Method($this, 'getIconUrl', array('is_safe' => array('html'))),
             'gchart_get_letter_pin_url'   => new \Twig_Function_Method($this, 'getLetterPinUrl', array('is_safe' => array('html'))),
             'gchart_get_icon_pin_url'   => new \Twig_Function_Method($this, 'getIconPinUrl', array('is_safe' => array('html'))),
@@ -187,6 +188,11 @@ class GChartExtension extends \Twig_Extension {
     public function getPieChart3DUrl($data, $id, $width, $height, $title = null, $params = array()) {
         $chart = new Chart\PieChart3D();
         return $chart->getUrl($data, $width, $height, $title, $params);
+    }
+
+    public function getBarChartUrl($data, $width, $height, $title = null, $params = array(), $rawParams = array()) {
+        $chart = new Chart\GroupedBarChart();
+        return $chart->getUrl($data, $width, $height, $title, $params, $rawParams);
     }
     
     public function getIconUrl($type, $data) {
