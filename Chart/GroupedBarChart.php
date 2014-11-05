@@ -67,7 +67,7 @@ class GroupedBarChart extends BaseChart {
 
         $transparent = isset($params['transparent']) ? $params['transparent']: $this->options['transparent'];
         $backgroundFillColor = isset($params['backgroundFillColor']) ? $params['backgroundFillColor']: null;
-        $axis = isset($params['axis']) ? $params['axis']: null;
+        $axis = isset($params['axis']) ? $params['axis']: $this->options['axis'];
         $axisScale = isset($params['axisScale']) ? $params['axisScale']: $this->options['axisScale'];
         $barWidth = isset($params['barWidth']) ? $params['barWidth']: $this->options['barWidth'];
         $serieColor = isset($params['serieColor']) ? : null;

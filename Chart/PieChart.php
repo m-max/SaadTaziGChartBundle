@@ -59,7 +59,9 @@ class PieChart extends BaseChart {
             $labels = implode('|', $data->getLabels());
         }
         //still no legend but should have one?  Take the default one...
-        $legendString = $this->getLegendParamValue($data);
+        if($withLegend) {
+            $legendString = $this->getLegendParamValue($data);
+        }
         
         $dataString = $this->getValueParamValue($data);
         
