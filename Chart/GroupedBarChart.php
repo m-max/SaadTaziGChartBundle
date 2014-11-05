@@ -32,6 +32,10 @@ class GroupedBarChart extends BaseChart {
         'legendSize' => null,
         'transparent' => false,
         'serieColor' => '0000FF',// chco
+        'axis' => 'x, y',// chxt
+        'axisScale' => 'a',// chds
+        'barWidth' => 'a',
+        'widthBarLabel' => true,
     );
 
     public function __construct(array $options = array()) {
@@ -63,11 +67,20 @@ class GroupedBarChart extends BaseChart {
 
         $transparent = isset($params['transparent']) ? $params['transparent']: $this->options['transparent'];
         $backgroundFillColor = isset($params['backgroundFillColor']) ? $params['backgroundFillColor']: null;
+        $axis = isset($params['axis']) ? $params['axis']: null;
+        $axisScale = isset($params['axisScale']) ? $params['axisScale']: $this->options['axisScale'];
+        $barWidth = isset($params['barWidth']) ? $params['barWidth']: $this->options['barWidth'];
         $serieColor = isset($params['serieColor']) ? : null;
         if (is_array($serieColor)) {
             $color = implode('|', $serieColor);
         } else {
             $color = $serieColor? $serieColor: null;
+        }
+
+        $withBarLabel = isset($params['withBarLabel']) ? $params['withBarLabel']: $this->options['withBarLabel'];
+        $chm = null;
+        if($withBarLabel){
+            $chm = 'N,000000,0,-1,11';
         }
 
         $legendString = null;
@@ -105,6 +118,10 @@ class GroupedBarChart extends BaseChart {
             'chdlp' => $legendAlignment . '|' . $legendOrder,
             'chdls' => $legendColor . '|' . $legendSize,
             'chf'  => isset($chf)? $chf : null,
+            'chds' => $axisScale,
+            'chxt' => $axis,
+            'chbh' => $barWidth,
+            'chm' => $chm
         );
 
         $params = array_merge($params, $rawParams);
