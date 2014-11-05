@@ -35,7 +35,7 @@ class GroupedBarChart extends BaseChart {
         'axis' => 'x, y',// chxt
         'axisScale' => 'a',// chds
         'barWidth' => 'a',
-        'widthBarLabel' => true,
+        'withBarLabel' => true,
     );
 
     public function __construct(array $options = array()) {
