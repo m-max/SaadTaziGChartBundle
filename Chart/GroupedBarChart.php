@@ -70,11 +70,9 @@ class GroupedBarChart extends BaseChart {
         $axis = isset($params['axis']) ? $params['axis']: $this->options['axis'];
         $axisScale = isset($params['axisScale']) ? $params['axisScale']: $this->options['axisScale'];
         $barWidth = isset($params['barWidth']) ? $params['barWidth']: $this->options['barWidth'];
-        $serieColor = isset($params['serieColor']) ? : null;
-        if (is_array($serieColor)) {
-            $color = implode('|', $serieColor);
-        } else {
-            $color = $serieColor? $serieColor: null;
+        $color = isset($params['color']) ? $params['color']: null;
+        if (is_array($color)) {
+            $color = implode('|', $color);
         }
 
         $withBarLabel = isset($params['withBarLabel']) ? $params['withBarLabel']: $this->options['withBarLabel'];

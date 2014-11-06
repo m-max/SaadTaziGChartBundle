@@ -14,7 +14,6 @@ class PieChart extends BaseChart {
     protected $defaults = array(
         'width'  => 400,
         'height' => 200,
-        //'color'  => '0000FF',
         'withLabels' => true,
         'transparent' => false,
         'titleColor'  => '000000',
@@ -46,12 +45,9 @@ class PieChart extends BaseChart {
         $withLegend = isset($params['withLegend']) ? $params['withLegend']: $this->options['withLegend'];
         $transparent = isset($params['transparent']) ? $params['transparent']: $this->options['transparent'];
         $backgroundFillColor = isset($params['backgroundFillColor']) ? $params['backgroundFillColor']: null;
-        $color = isset($params['color']) ? : null;
-        
+        $color = isset($params['color']) ? $params['color']: null;
         if (is_array($color)) {
             $color = implode('|', $color);
-        } else {
-            $color = $color? $color: null;
         }
         
         $labels = null;
